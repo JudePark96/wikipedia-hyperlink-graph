@@ -40,6 +40,12 @@ class ReaderBase(object):
         text = text.replace('&lt;', '<').replace('&gt;', '>')
         return re.sub(r'<.*?>', '', text)
 
+    def split_paragraph(self, text: str) -> List[str]:
+        """
+        paragraphs of each articles has seperators \n.
+        """
+        return text.split('\n')
+
 
 class WikiReader(ReaderBase):
     def __init__(self, path) -> None:
